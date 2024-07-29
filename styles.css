@@ -1,42 +1,350 @@
 body {
     font-family: Arial, sans-serif;
+    background: url('./anime-boy-dragon-purple-desktop-wallpaper.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
-    background: url(./pokemon.jpg) no-repeat center center fixed;
 }
 
 .container {
-    text-align: center;
-    background: white;
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+    width: 700px;
+    background: rgba(255, 255, 255, 0.3); /* White background with opacity */
+    backdrop-filter: blur(4px); /* Blur effect */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
 }
 
-#stopwatch {
-    font-size: 3em;
-    margin: 20px 0;
-}
-
-.controls button {
-    font-size: 1.2em;
+button {
     padding: 10px 20px;
-    margin: 10px;
+    margin: 5px;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px; /* Rounded corners */
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-#startStopBtn {
-    background-color: #28a745;
+#setTimeBtn {
+    width: 150px;
+}
+
+/* Default button style */
+button {
+    background-color: #00aaff; /* Light blue to match the background image */
     color: white;
+}
+
+/* Hover state */
+button:hover {
+    background-color: #0077cc; /* Darker blue on hover */
+    color: #e0e0e0; /* Light grey text on hover */
+}
+
+/* Active state */
+button:active {
+    background-color: #005f99; /* Even darker blue when button is pressed */
+    color: #c0c0c0; /* Slightly lighter grey text */
+}
+
+/* Specific button styles */
+#startStopBtn {
+    background-color: #00cc99; /* Teal for the Start/Stop button */
+}
+
+#startStopBtn:hover {
+    background-color: #009977; /* Darker teal on hover */
 }
 
 #resetBtn {
-    background-color: #dc3545;
-    color: white;
+    background-color: #e13333; /* Light red for the Reset button */
+}
+
+#resetBtn:hover {
+    background-color: #ee3434; /* Darker red on hover */
+}
+
+#taskBtn {
+    background-color: #ff0066; /* Yellow for the Add Task button */
+}
+
+#taskBtn:hover {
+    background-color: #ff0066; /* Darker yellow on hover */
+}
+
+#setTimeBtn {
+    background-color: #9933ff; /* Purple for Set Study Time button */
+}
+
+#setTimeBtn:hover {
+    background-color: #6600cc; /* Darker purple on hover */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#stopwatch {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #c0c0c0;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.time-inputs input {
+    width: 40px;
+    height: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 2px rgb(20, 181, 230);
+    font-size: 24px;
+    outline: none;
+}
+
+.controls,
+.task-time,
+.study-time-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+    width: calc(50% - 30px);
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 2px rgb(0, 0, 0);
+    outline: none;
+    color: #e0e0e0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+    width: 200px; /* Adjust as needed */
+    height: 20px; /* Match the height */
+    background-color: transparent; /* Transparent background */
+    color: rgba(255, 255, 255, 0.7); /* White text color */
+    border: none; /* Remove default border */
+    border-bottom: solid 2px rgb(2, 3, 3); /* Custom border color */
+    outline: none; /* Remove default focus outline */
+    border-radius: 2px; /* Optional: Rounded corners */
+}
+
+input[type="text"]:focus {
+    background-color: transparent; /* Ensure background remains transparent on focus */
+}
+
+/* Placeholder text style */
+
+/* When typing in the input field, ensure the color remains consistent */
+
+/* .loader {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.loader-bar {
+    width: 10px;
+    height: 40px;
+    background-color: #00ffff;
+    margin: 0 5px;
+    animation: loader 1s infinite;
+} */
+
+.loader-bar.bar-1 { animation-delay: 0s; }
+.loader-bar.bar-2 { animation-delay: 0.2s; }
+.loader-bar.bar-3 { animation-delay: 0.4s; }
+.loader-bar.bar-4 { animation-delay: 0.6s; }
+
+@keyframes loader {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(2);
+    }
+}
+
+.svg-frame {
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    position: relative;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-frame svg {
+    position: absolute;
+    transition: .5s;
+    z-index: calc(1 - (0.2 * var(--j)));
+    transform-origin: center;
+    width: 344px;
+    height: 344px;
+    fill: none;
+}
+
+.svg-frame:hover svg {
+    transform: rotate(-80deg) skew(30deg) translateX(calc(45px * var(--i))) translateY(calc(-35px * var(--i)));
+}
+
+.svg-frame svg #center {
+    transition: .5s;
+    transform-origin: center;
+}
+
+.svg-frame:hover svg #center {
+    transform: rotate(-30deg) translateX(45px) translateY(-3px);
+}
+
+#out2 {
+    animation: rotate16 7s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+#out3 {
+    animation: rotate16 3s ease-in-out infinite alternate;
+    transform-origin: center;
+    stroke: #ff0;
+}
+
+#inner3,
+#inner1 {
+    animation: rotate16 4s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+#center1 {
+    fill: #ff0;
+    animation: rotate16 2s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+@keyframes rotate16 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #stopwatch {
+        font-size: 36px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    .time-inputs input {
+        font-size: 14px;
+        width: 35px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #stopwatch {
+        font-size: 32px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    .time-inputs input {
+        font-size: 14px;
+        width: 30px;
+        height: 35px;
+    }
+
+    .time-inputs {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #stopwatch {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    .time-inputs input {
+        font-size: 12px;
+        width: 25px;
+        height: 30px;
+    }
+
+    .time-inputs {
+        flex-direction: column;
+    }
 }
